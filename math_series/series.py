@@ -20,14 +20,23 @@ def lucas(n):
     return lucas(n-1) + lucas(n-2)
 
 
-def sum_series(n, a, b):
+# def sum_series(n, a, b):
 
-  if a == 0 and b == 1: 
-    return fibonacci(n)
-  elif a == 2 and b == 1:
-    return lucas(n)
-  else:
-    if n == 0: return a
-    elif n == 1: return b
+#   if a == 0 and b == 1: 
+#     return fibonacci(n)
+#   elif a == 2 and b == 1:
+#     return lucas(n)
+#   else:
+#     if n == 0: return a
+#     elif n == 1: return b
+#     else:
+#       return sum_series(n-1, a, b) + sum_series(n-2, a, b)
+
+def sum_series(n, start_n=0, second_n=1):
+
+    if n == 0:
+        return start_n
+    elif n == 1:
+        return second_n
     else:
-      return sum_series(n-1, a, b) + sum_series(n-2, a, b)
+        return sum_series(n-1, start_n, second_n) + sum_series(n-2, start_n, second_n)
